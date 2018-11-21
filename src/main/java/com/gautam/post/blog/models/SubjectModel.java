@@ -1,13 +1,10 @@
 package com.gautam.post.blog.models;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,9 +16,6 @@ public class SubjectModel {
 	
 	@Column(name = "name")
 	String name;
-
-	@ManyToMany
-	private List<CourseModel> courses;
 
 	public Long getId() {
 		return id;
@@ -38,20 +32,11 @@ public class SubjectModel {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public List<CourseModel> getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List<CourseModel> courses) {
-		this.courses = courses;
-	}
 
 	@Override
 	public String toString() {
-		return "SubjectModel [id=" + id + ", name=" + name + ", courses=" + courses + "]";
+		return "SubjectModel [id=" + id + ", name=" + name + "]";
 	}
-
-	
+		
 
 }

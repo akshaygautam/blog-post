@@ -28,14 +28,11 @@ public class CourseModel {
 	@Column(name = "duration")
 	Double duration;
 	
-	@ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "course_subject", 
 		joinColumns = @JoinColumn(name = "courses_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "subjects_id", referencedColumnName= "id"))
 	List<SubjectModel> subjects;
-	
-	@OneToMany
-	private List<StudentModel> students;
 
 	public Long getId() {
 		return id;
@@ -69,19 +66,11 @@ public class CourseModel {
 		this.subjects = subjects;
 	}
 
-	public List<StudentModel> getStudents() {
-		return students;
-	}
-
-	public void setStudents(List<StudentModel> students) {
-		this.students = students;
-	}
-
 	@Override
 	public String toString() {
-		return "CourseModel [id=" + id + ", name=" + name + ", duration=" + duration + ", subjects=" + subjects
-				+ ", students=" + students + "]";
+		return "CourseModel [id=" + id + ", name=" + name + ", duration=" + duration + ", subjects=" + subjects + "]";
 	}
+
 
 	
 }
