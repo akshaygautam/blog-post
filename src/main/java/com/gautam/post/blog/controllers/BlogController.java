@@ -17,13 +17,13 @@ import com.gautam.post.blog.exceptions.ApiException;
 import com.gautam.post.blog.services.BlogService;
 
 @RestController
-@RequestMapping("/api/blog")
+@RequestMapping("/api")
 public class BlogController {
 	
 	@Autowired
 	BlogService blogService;
 	
-	@GetMapping("/blog")
+	@GetMapping("/blogs")
 	public List<BlogDTO> getAllBlogs() {
 		return blogService.getAllBlogs();
 	}
